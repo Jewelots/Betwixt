@@ -144,7 +144,7 @@ namespace Betwixt
             if (_elapsed >= _duration)
             {
                 _elapsed = _duration;
-                Value = _end;
+                Value = Calculate(_start, _end, 1, _easeFunc, _lerpFunc); // Set it to end point
 
                 Stop();
                 Ended();
@@ -219,7 +219,7 @@ namespace Betwixt
         }
 
         /// <summary>
-        /// Reset the Tweener to move to new value (stops in current location)
+        /// Reset the Tweener to move to new value (current location is new start location)
         /// </summary>
         /// <param name="to">New value to move towards</param>
         [UsedImplicitly]

@@ -1,4 +1,5 @@
 lib/
+build/vc2013/
 doc/build/
 obj/
 build/*.xml
