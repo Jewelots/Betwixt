@@ -55,6 +55,7 @@ namespace Betwixt
     /// </para>
     /// </example>
     ///////////////////////////////////////////////////////////////////////////
+    [UsedImplicitly]
     public class Tweener<T>
     {
         /// <summary>

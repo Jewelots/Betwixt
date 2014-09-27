@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ease.cs" />
-    <Compile Include="Implementation.cs" />
+    <Compile Include="EaseImplementations.cs" />
     <Compile Include="GenericMath.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
