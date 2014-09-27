@@ -162,7 +162,7 @@ namespace Betwixt
             [UsedImplicitly]
             public static IEase CreateFromIn(EaseFunc easeInFunc, EaseFunc easeInOutFunc = null)
             {
-                return GenericImpl.FromIn(easeInFunc, easeInOutFunc);
+                return GenericEaseImpl.FromIn(easeInFunc, easeInOutFunc);
             }
 
             /// <summary>
@@ -174,7 +174,7 @@ namespace Betwixt
             [UsedImplicitly]
             public static IEase CreateFromOut(EaseFunc easeOutFunc, EaseFunc easeInOutFunc = null)
             {
-                return GenericImpl.FromOut(easeOutFunc, easeInOutFunc);
+                return GenericEaseImpl.FromOut(easeOutFunc, easeInOutFunc);
             }
 
             /// <summary>
@@ -191,7 +191,7 @@ namespace Betwixt
             [UsedImplicitly]
             public static IEase Create(EaseFunc easeInFunc, EaseFunc easeOutFunc, EaseFunc easeInOutFunc = null)
             {
-                return GenericImpl.From(easeInFunc, easeOutFunc, easeInOutFunc);
+                return GenericEaseImpl.From(easeInFunc, easeOutFunc, easeInOutFunc);
             }
         }
     }
