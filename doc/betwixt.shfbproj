@@ -28,7 +28,7 @@
       <DocumentationSource sourceFile="..\lib\x86\Betwixt.dll" />
       <DocumentationSource sourceFile="..\lib\x86\Betwixt.xml" />
     </DocumentationSources>
-    <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, TypeParameter, AutoDocumentDispose</MissingTags>
+    <MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
     <MaximumGroupParts>2</MaximumGroupParts>
     <NamespaceGrouping>False</NamespaceGrouping>
     <SyntaxFilters>C#</SyntaxFilters>
