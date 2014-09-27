@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+VisualStudioVersion = 10.0.40219.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Betwixt", "..\..\src\Betwixt\Betwixt.csproj", "{A60DCBBD-CB6D-44E0-BD40-0415E953766C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Debug|x64.ActiveCfg = Debug|x64
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Debug|x64.Build.0 = Debug|x64
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Debug|x86.ActiveCfg = Debug|x86
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Debug|x86.Build.0 = Debug|x86
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Release|x64.ActiveCfg = Release|x64
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Release|x64.Build.0 = Release|x64
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Release|x86.ActiveCfg = Release|x86
+		{A60DCBBD-CB6D-44E0-BD40-0415E953766C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
