@@ -8,6 +8,11 @@ whatever you set out to do, in the easiest way possible.
 
 You can get the latest repository here, or download precompiled library files from the [releases tab](https://github.com/Jewelots/Betwixt/releases)
 
+You can also get this package using Nuget!
+
+For x86: PM > Install-Package betwixt   
+For x64: PM > Install-Package betwixt_x64
+
 # Usage
 
 Please reference the documentation located in the [/doc](/doc) folder. Here is a very small overview, however:
