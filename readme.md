@@ -20,7 +20,7 @@ Please reference the documentation located in the [/doc](/doc) folder. Here is a
 General Use:
 ```csharp
 // Initialisation
-Tweener<float> tweener = new Tweener(0, 10, 2, Ease.Elastic.Out);
+Tweener<float> tweener = new Tweener<float>(0, 10, 2, Ease.Elastic.Out);
 // Update
 tweener.Update(deltaTime);
 // Anywhere
@@ -32,7 +32,7 @@ You can also use your own custom type, with it's own lerp function (or let gener
 
 ```csharp
 TimeSpan length = TimeSpan.FromSeconds(3);
-Tweener<Vector2> tweener = new Tweener(startVector, endVector, length, Ease.Linear, Vector2.Lerp);
+Tweener<Vector2> tweener = new Tweener<Vector2>(startVector, endVector, length, Ease.Linear, Vector2.Lerp);
 ```
 
 
@@ -40,7 +40,7 @@ You can also specify your own ease function and make it into a set (or use the f
 
 ```csharp
 IEase myEaseSet = Generic.CreateFromOut(myEaseOutFunction);
-Tweener<float> tweener = new Tweener(0, 10, 2, myEaseSet.InOut);
+Tweener<float> tweener = new Tweener<float>(0, 10, 2, myEaseSet.InOut);
 ```
 
 
@@ -51,7 +51,7 @@ If you had a custom graph curve which had a "float GetValueAtTime(float time)" f
 ```csharp
 CustomGraphCurve myCustomGraphCurve = new CustomGraphCurve(graphPoints);
 
-Tweener<float> tweener = new Tweener(0, 10, 2, myCustomGraphCurve.GetValueAtTime);
+Tweener<float> tweener = new Tweener<float>(0, 10, 2, myCustomGraphCurve.GetValueAtTime);
 ```
 
 

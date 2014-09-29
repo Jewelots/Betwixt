@@ -31,7 +31,7 @@ namespace Betwixt
     /// General Use:
     /// <code>
     /// // Initialisation
-    /// Tweener&lt;float&gt; tweener = new Tweener(0, 10, 2, Ease.Elastic.Out);
+    /// Tweener&lt;float&gt; tweener = new Tweener&lt;float&gt;(0, 10, 2, Ease.Elastic.Out);
     /// // Update
     /// tweener.Update(deltaTime);
     /// // Anywhere
@@ -42,7 +42,7 @@ namespace Betwixt
     /// <para>
     /// You can also use your own custom type, with it's own lerp function (or let generics handle it)
     /// <code>
-    /// Tweener&lt;Vector2&gt; tweener = new Tweener(startVector, endVector, TimeSpan.FromSeconds(3), Ease.Linear, Vector2.Lerp);
+    /// Tweener&lt;Vector2&gt; tweener = new Tweener&lt;Vector2&gt;(startVector, endVector, TimeSpan.FromSeconds(3), Ease.Linear, Vector2.Lerp);
     /// </code>
     /// </para>
     /// 
@@ -50,7 +50,7 @@ namespace Betwixt
     /// You can also specify your own ease function and make it into a set (or use the function directly)
     /// <code>
     /// IEase myEaseSet = Generic.CreateFromOut(myEaseOutFunction);
-    /// Tweener&lt;float&gt; tweener = new Tweener(0, 10, 2, myEaseSet.InOut);
+    /// Tweener&lt;float&gt; tweener = new Tweener&lt;float&gt;(0, 10, 2, myEaseSet.InOut);
     /// </code>
     /// </para>
     /// </example>
@@ -66,7 +66,7 @@ namespace Betwixt
         /// <param name="duration">Time (in seconds) to get to the target</param>
         /// <param name="easeFunc">Ease function to use (defaults to linear if unspecified)</param>
         /// <param name="lerpFunc">Lerp function to use (defaults to generic if unspecified)</param>
-        public Tweener(T start, T end, float duration, EaseFunc easeFunc = null, LerpFunc<T> lerpFunc = null)
+        public Tweener(T start, T end, double duration, EaseFunc easeFunc = null, LerpFunc<T> lerpFunc = null)
         {
             _elapsed = 0.0f;
             _start = start;
@@ -88,11 +88,24 @@ namespace Betwixt
         /// </summary>
         /// <param name="start">Value to start at</param>
         /// <param name="end">Target value</param>
+        /// <param name="duration">Time (in seconds) to get to the target</param>
+        /// <param name="easeFunc">Ease function to use (defaults to linear if unspecified)</param>
+        /// <param name="lerpFunc">Lerp function to use (defaults to generic if unspecified)</param>
+        public Tweener(T start, T end, float duration, EaseFunc easeFunc = null, LerpFunc<T> lerpFunc = null)
+            : this(start, end, (double)duration, easeFunc, lerpFunc)
+        {
+        }
+
+        /// <summary>
+        /// Create a new Tweener
+        /// </summary>
+        /// <param name="start">Value to start at</param>
+        /// <param name="end">Target value</param>
         /// <param name="duration">How long to get to the target</param>
         /// <param name="easeFunc">Ease function to use (defaults to linear if unspecified)</param>
         /// <param name="lerpFunc">Lerp function to use (defaults to generic if unspecified)</param>
         public Tweener(T start, T end, TimeSpan duration, EaseFunc easeFunc = null, LerpFunc<T> lerpFunc = null)
-            : this(start, end, (float)duration.TotalSeconds, easeFunc, lerpFunc)
+            : this(start, end, duration.TotalSeconds, easeFunc, lerpFunc)
         {
         }
 
@@ -109,8 +122,8 @@ namespace Betwixt
 
         [UsedImplicitly] private T _start;
         [UsedImplicitly] private T _end;
-        [UsedImplicitly] private float _elapsed;
-        [UsedImplicitly] private float _duration;
+        [UsedImplicitly] private double _elapsed;
+        [UsedImplicitly] private double _duration;
         [UsedImplicitly] private EaseFunc _easeFunc;
         [UsedImplicitly] private LerpFunc<T> _lerpFunc;
 
@@ -133,7 +146,7 @@ namespace Betwixt
         /// </summary>
         /// <param name="deltaTime">Elapsed time between frame (in seconds)</param>
         [UsedImplicitly]
-        public void Update(float deltaTime)
+        public void Update(double deltaTime)
         {
             // Don't update if not running
             if (!Running) return;
@@ -153,7 +166,17 @@ namespace Betwixt
             }
 
             // Calculate new value based on current Lerp percent
-            Value = Calculate(_start, _end, _elapsed / _duration, _easeFunc, _lerpFunc);
+            Value = Calculate(_start, _end, (float)(_elapsed / _duration), _easeFunc, _lerpFunc);
+        }
+
+        /// <summary>
+        /// Update the Tweener
+        /// </summary>
+        /// <param name="deltaTime">Elapsed time between frame (in seconds)</param>
+        [UsedImplicitly]
+        public void Update(float deltaTime)
+        {
+            Update((double)deltaTime);
         }
 
         /// <summary>
@@ -214,7 +237,7 @@ namespace Betwixt
         [UsedImplicitly]
         public void Reset()
         {
-            _elapsed = 0.0f;
+            _elapsed = 0;
             Value = _start;
         }
 
@@ -225,7 +248,7 @@ namespace Betwixt
         [UsedImplicitly]
         public void Reset(T to)
         {
-            _elapsed = 0.0f;
+            _elapsed = 0;
             _start = Value;
             _end = to;
         }
@@ -236,7 +259,7 @@ namespace Betwixt
         [UsedImplicitly]
         public void Reverse()
         {
-            _elapsed = 0.0f;
+            _elapsed = 0;
 
             T tmp = _end;
             _end = _start;
