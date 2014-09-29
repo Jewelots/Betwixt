@@ -10,8 +10,7 @@ You can get the latest repository here, or download precompiled library files fr
 
 You can also get this package using Nuget!
 
-For x86: PM > Install-Package betwixt   
-For x64: PM > Install-Package betwixt_x64
+For x86: PM > Install-Package betwixt
 
 # Usage
 
