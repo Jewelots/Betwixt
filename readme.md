@@ -1,8 +1,7 @@
 Betwixt - Easy Tweening Library for .Net
 ============================
 
-Betwixt is a quick way to ease and tween between any generic types, and provides a robust fast API to allow you to do
-whatever you set out to do, in the easiest way possible.
+Betwixt is a quick way to ease and tween between any generic types, and provides a robust API.
 
 # Download
 
@@ -43,7 +42,7 @@ Tweener<float> tweener = new Tweener<float>(0, 10, 2, myEaseSet.InOut);
 ```
 
 
-Betwixt is incredibly flexible, and as long as your ease function matches the correct signature, you can use anything you want!
+Betwixt is flexible, and as long as your ease function matches the correct signature, you can use anything you want!
 
 If you had a custom graph curve which had a "float GetValueAtTime(float time)" function you could even use:
 
@@ -55,7 +54,3 @@ Tweener<float> tweener = new Tweener<float>(0, 10, 2, myCustomGraphCurve.GetValu
 
 
 Hopefully this inspires you to think of creative ways to use Betwixt!
-
-# Contact
-
-Feel free to contact me at [twitchy137@gmail.com](mailto:twitchy137@gmail.com?subject=FFXIV Server Status Notifier) if you have any questions, or maybe if you want to toss me a few cents!
